@@ -7,11 +7,11 @@ int main (){
     int ano,dia,mes;
     int ano2,dia2,mes2;
 
-    printf("Primeira data dia/m�s/ano : ");
+    printf("Primeira data dia/mês/ano : ");
     scanf("%d""%d""%d", &dia, &mes, &ano);
     system("cls");
 
-    printf("Segunda data dia/m�s/ano : ");
+    printf("Segunda data dia/mês/ano : ");
     scanf("%d""%d""%d", &dia2, &mes2, &ano2);
     system("cls");
 
