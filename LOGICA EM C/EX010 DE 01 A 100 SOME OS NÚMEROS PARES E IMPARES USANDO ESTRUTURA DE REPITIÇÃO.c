@@ -7,18 +7,18 @@ int main()
 
     int contador, somapar, somaimpar;
     contador = 1;
+    somapar = 0;
+    somaimpar = 0;
 
     for (contador = 1; contador <= 100; contador++)
     {
         if (contador % 2 == 0)
         {
-            /// printf("%d\n", contador);
-            somapar = contador + contador;
+            somapar = somaimpar + contador;
         }
         else
         {
-            // printf("%d\n", contador);
-            somaimpar = contador + contador;
+            somaimpar = somaimpar + contador;
         }
     }
 
