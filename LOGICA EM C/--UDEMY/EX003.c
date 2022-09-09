@@ -16,13 +16,14 @@ int main (){
             raiz = sqrt(n1);
             potencia = pow(n1, 2);
             printf("A raiz quadrada de %.0f é %.2f eo quadrado dele é %.0f\n", n1, raiz, potencia);
+            printf("\n");
         }
         else
         {
             printf("Digite um número valido....\n");
+            printf("\n");
         }
-    }while (con < 1);
-    
+    }while (con < 2);
 
     return 0;
 }
