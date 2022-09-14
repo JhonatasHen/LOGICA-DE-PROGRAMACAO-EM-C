@@ -23,6 +23,7 @@ int main (){
             printf("Digite um número valido....\n");
             printf("\n");
         }
+        
     }while (con < 2);
 
     return 0;
