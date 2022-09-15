@@ -2,9 +2,9 @@
 #include <locale.h>
 int main () {
     setlocale(LC_ALL, "Portuguese");
-    float vendas, pra = 0, pre = 0, bra = 0, ver = 0, distri = 1000;
+    float vendas, pra = 0, pre = 0, bra = 0, ver = 0;
     float porpra = 0, porpre = 0, porbra = 0, porver = 0;
-    
+    int distri = 1000;
     for (int i = 0 - 1; i < distri;)
     {   
         int quantidade = 0;
@@ -28,7 +28,7 @@ int main () {
             scanf("%d", &quantidade);
             pre = pre + quantidade;
             porpre = pre * 100 / 1000;
-            distri = distri - quantidade;
+            distri =  distri - quantidade;
         }
         else if (vendas == 3)
         {
