@@ -30,10 +30,7 @@ int main()
                     fputs(frase, arq);
                     printf("Digite uma frase ou [ 0 ] para sair: ");
                     fgets(frase, 50, stdin);
-                    quantidade_linhas = quantidade_linhas + 1;
                 }
-                quantidade_linhas = quantidade_linhas - 1;
-                printf("%d linhas escritas:\n", quantidade_linhas);
             }
         }
         else if (escrever_ou_ler == 2)
@@ -47,8 +44,11 @@ int main()
                     if (resultado)
                     {
                         printf("%s", frase);
+                        quantidade_linhas = quantidade_linhas + 1;
                     }
                 }
+                printf("\n");
+                printf("Quantidade de linhas lidas: %d", quantidade_linhas);
             }
         }
 
