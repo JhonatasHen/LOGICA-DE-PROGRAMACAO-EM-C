@@ -31,6 +31,13 @@ int main()
         else if (escrever_ler == 2)
         {
             arq = fopen("Novo_texto.txt", "r");
+            if (arq)
+            {
+                while (!feof(arq))
+                {
+                    printf("%s", texto);
+                }
+            }
         }
 
         fclose(arq);
