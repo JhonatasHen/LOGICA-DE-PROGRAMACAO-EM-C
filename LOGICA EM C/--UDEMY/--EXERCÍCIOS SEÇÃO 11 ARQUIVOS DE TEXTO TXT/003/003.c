@@ -6,7 +6,7 @@ int main()
 {
     setlocale(LC_ALL, "");
     FILE *arq;
-    char texto[500], *resultado;
+    char texto[50];
     int escrever_ler = 0, sair = 0;
 
     do
@@ -34,13 +34,11 @@ int main()
             arq = fopen("Novo_texto.txt", "r");
             if (arq)
             {
-                while (!feof(arq))
+                while ((texto[0] = getc(arq)) != EOF)
                 {
-                    resultado = fgets(texto, 500, arq);
-                    if (resultado)
-                    {
-                        printf("%s", texto);
-                    }
+                    printf("%c", texto);
+                    
+                        
                 }
             }
         }
