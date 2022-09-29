@@ -6,11 +6,12 @@ int main()
 {
     setlocale(LC_ALL, "");
     FILE *arq;
-    char texto[500];
-    int escrever_ler = 0;
+    char texto[500], *resultado;
+    int escrever_ler = 0, sair = 0;
+
     do
     {
-        printf("[ 1 ] ESCREVER:\n[ 2 ] LER:\n[ 3 ] SAIR");
+        printf("[ 1 ] ESCREVER:\n[ 2 ] LER:\n[ 3 ] SAIR\n");
         scanf("%d", &escrever_ler);
         fflush(stdin);
         if (escrever_ler == 1)
@@ -31,10 +32,25 @@ int main()
         else if (escrever_ler == 2)
         {
             arq = fopen("Novo_texto.txt", "r");
+            if (arq)
+            {
+                while (!feof(arq))
+                {
+                    resultado = fgets(texto, 500, arq);
+                    if (resultado)
+                    {
+                        printf("%s", texto);
+                    }
+                }
+            }
+        }
+        else if (escrever_ler == 3)
+        {
+            sair++;
         }
 
         fclose(arq);
-    } while (escrever_ler <= 0);
+    } while (sair <= 0);
 
     return 0;
 }
