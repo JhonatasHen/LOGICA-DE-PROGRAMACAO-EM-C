@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1665956873 source:d:\--Área de trabalho\--logica-de-programacao-em-c\projeto pim\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<locale.h>
+
+1665945176 source:d:\--Área de trabalho\--logica-de-programacao-em-c\projeto pim\teste.c
+	<stdio.h>
+
