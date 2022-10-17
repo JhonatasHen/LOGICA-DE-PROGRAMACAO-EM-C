@@ -5,8 +5,8 @@
 
 struct ts_funcionario
 {
-    char nome_funcionario[100];
-    char ano_nascimento[25];
+    char nome[100];
+    int dia, mes, ano;
     char nacionalidade[25];
     char cargo[25];
     char jornada_de_trabalho[25];
@@ -87,10 +87,24 @@ int main()
                     while(novo_registro == 0)
                     {
                         system("cls");
-                        printf("Nome do funcionário\nAperte 0 para sair:\n");
-                        fgets(funcionario.nome_funcionario, 100, stdin);
-                        fputs(funcionario.nome_funcionario, cadastro_funcionario);
-                        printf("%s", funcionario.nome_funcionario);
+                        printf("Nome do funcionário\n");
+                        fgets(funcionario.nome, 100, stdin);
+                        fprintf(cadastro_funcionario,"nome do funcionario: %s", funcionario.nome);
+
+                        printf("Data de nascimento:\n");
+                        printf("Dia: ");
+                        scanf("%d", &funcionario.dia);
+                        fflush(stdin);
+                        printf("Mês: ");
+                        scanf("%d", &funcionario.mes);
+                        fflush(stdin);
+                        printf("ano: ");
+                        scanf("%d", &funcionario.ano);
+                        fflush(stdin);
+                        fprintf(cadastro_funcionario,"Data de nascimento: %d/%d/%d\n", funcionario.dia, funcionario.mes, funcionario.ano);
+
+                        fprintf(cadastro_funcionario,"\n");
+
                         printf("Registrar novo funcionário\n[0] SIM\n[1] NÃO\n");
                         scanf("%d", &novo_registro);
                         getchar();
