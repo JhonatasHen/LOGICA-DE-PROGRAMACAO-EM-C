@@ -89,7 +89,7 @@ int main()
                         system("cls");
                         printf("Nome do funcionário\n");
                         fgets(funcionario.nome, 100, stdin);
-                        fprintf(cadastro_funcionario,"nome do funcionario: %s", funcionario.nome);
+
 
                         printf("Data de nascimento:\n");
                         printf("Dia: ");
@@ -101,9 +101,17 @@ int main()
                         printf("ano: ");
                         scanf("%d", &funcionario.ano);
                         fflush(stdin);
-                        fprintf(cadastro_funcionario,"Data de nascimento: %d/%d/%d\n", funcionario.dia, funcionario.mes, funcionario.ano);
 
-                        fprintf(cadastro_funcionario,"\n");
+                        printf("Cargo: ");
+                        fgets(funcionario.cargo, 25, stdin);
+
+                        printf("Jornada de trabalho: ");
+                        fgets(funcionario.jornada_de_trabalho, 25, stdin);
+
+                        fprintf(cadastro_funcionario,"nome do funcionario: %s", funcionario.nome);
+                        fprintf(cadastro_funcionario,"Data de nascimento: %d/%d/%d\n", funcionario.dia, funcionario.mes, funcionario.ano);
+                        fprintf(cadastro_funcionario,"Cargo: %s", funcionario.cargo);
+                        fprintf(cadastro_funcionario, "Jornada de trabalho: %s\n\n", funcionario.jornada_de_trabalho);
 
                         printf("Registrar novo funcionário\n[0] SIM\n[1] NÃO\n");
                         scanf("%d", &novo_registro);
