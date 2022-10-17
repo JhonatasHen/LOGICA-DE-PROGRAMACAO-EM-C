@@ -17,6 +17,7 @@ int main()
 {
     setlocale(LC_ALL, "");
     FILE *cadastro_funcionario;
+    char *resultado_nome;
 
     //- - -LOGIN- - -
     char entrar_admin_login[20] = {"admin"}, entrar_admin_senha[20] = {"admin"};
@@ -69,7 +70,7 @@ int main()
         system("cls");
         printf("ACESSO ADMINSTRADOR\n\n");
 
-        printf("[1] Cadastros de funcioários\n[2] Cadastros de clientes\n[3] Pagamento");
+        printf("[1] Cadastros de funcionários\n[2] Cadastros de clientes\n[3] Pagamento\n[4] funcionários cadastrados");
         printf("Escolha uma opção:\n");
         scanf("%d", &opcao);
         fflush(stdin);
@@ -134,6 +135,24 @@ int main()
 
             //PAGAMENTO
             case 3:
+
+                break;
+
+            //FUNCIONÁRIOS CADASTRADOS
+            case 4:
+
+                cadastro_funcionario = fopen("Funcionarios.txt", "a");
+                if(cadastro_funcionario)
+                {
+                    while(!feof(cadastro_funcionario))
+                    {
+                        resultado_nome = fgets(funcionario.nome, 100, cadastro_funcionario);
+                        if (resultado_nome)
+                        {
+                            printf("%s\n", resultado_nome);
+                        }
+                    }
+                }
 
                 break;
 
