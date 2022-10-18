@@ -7,19 +7,22 @@ struct ts_funcionario
 {
     char nome[100];
     int dia, mes, ano;
-    char nacionalidade[25];
     char cargo[25];
     char jornada_de_trabalho[25];
 }funcionario;
 
 struct ts_cliente
 {
-
+    char nome[100];
+    int telefone, ddd;
+    char email[50];
+    char endereco[100];
 }cliente;
 
 int main()
 {
     setlocale(LC_ALL, "");
+
     FILE *cadastro_funcionario;
     FILE *cadastro_cliente;
 
@@ -137,6 +140,25 @@ int main()
 
                 //CADASTRO DE CLIENTE
                 case 2:
+                    system("cls");
+                    cadastro_cliente = fopen("Clientes.txt", "a");
+
+                    if(cadastro_cliente);
+                    {
+                        int novo_cliente = 0;
+                        while(novo_cliente == 0);
+                        {
+                            system("cls");
+                            printf("Nome do cliente: ");
+                            fgets(cliente.nome, 100, stdin);
+
+                            printf("Telefone:");
+                            printf("DDD: ");
+                            scanf("%d", &cliente.ddd);
+                            printf("Numero: ");
+                            scanf("%d", &cliente.telefone);
+                        }
+                    }
 
                     break;
 
