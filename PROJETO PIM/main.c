@@ -14,7 +14,7 @@ struct ts_funcionario
 struct ts_cliente
 {
     char nome[100];
-    int telefone, ddd;
+    int telefone, ddd, numero_casa;
     char email[100];
     char endereco[100];
 }cliente;
@@ -164,8 +164,13 @@ int main()
 
                             printf("Endereço: ");
                             fgets(cliente.endereco, 100, stdin);
+                            printf("Numero: ");
+                            scanf("%d", &cliente.numero_casa);
 
                             fprintf(cadastro_cliente,"Nome: %s", cliente.nome);
+                            fprintf(cadastro_cliente,"Telefone: (%d)%d", cliente.ddd, cliente.telefone);
+                            fprintf(cadastro_cliente,"E-mail: %d", cliente.email);
+                            fprintf(cadastro_cliente,"Endereço: %s Nº%d", cliente.endereco, cliente.numero_casa);
 
 
 
