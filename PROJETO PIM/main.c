@@ -147,17 +147,18 @@ int main()
                     if(cadastro_cliente);
                     {
                         int novo_cliente = 0;
-                        while(novo_cliente == 0);
+                        while(novo_cliente == 0)
                         {
                             system("cls");
                             printf("Nome do cliente: ");
                             fgets(cliente.nome, 100, stdin);
 
-                            printf("Telefone:");
+                            printf("Telefone:\n");
                             printf("DDD: ");
                             scanf("%d", &cliente.ddd);
                             printf("Numero: ");
                             scanf("%d", &cliente.telefone);
+                            fflush(stdin);
 
                             printf("E-mail: ");
                             fgets(cliente.email, 100, stdin);
@@ -166,11 +167,12 @@ int main()
                             fgets(cliente.endereco, 100, stdin);
                             printf("Numero: ");
                             scanf("%d", &cliente.numero_casa);
+                            fflush(stdin);
 
                             fprintf(cadastro_cliente,"Nome: %s", cliente.nome);
-                            fprintf(cadastro_cliente,"Telefone: (%d)%d", cliente.ddd, cliente.telefone);
-                            fprintf(cadastro_cliente,"E-mail: %d", cliente.email);
-                            fprintf(cadastro_cliente,"Endereço: %s Nº%d", cliente.endereco, cliente.numero_casa);
+                            fprintf(cadastro_cliente,"Telefone: (%d)%d\n", cliente.ddd, cliente.telefone);
+                            fprintf(cadastro_cliente,"E-mail: %s", cliente.email);
+                            fprintf(cadastro_cliente,"Endereço: %s Nº%d\n\n", cliente.endereco, cliente.numero_casa);
 
 
 
