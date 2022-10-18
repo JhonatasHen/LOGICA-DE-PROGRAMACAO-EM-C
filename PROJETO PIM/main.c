@@ -188,7 +188,7 @@ int main()
                         }
                     }
 
-                    break;
+                break;
 
                 //PAGAMENTO
                 case 3:
@@ -251,10 +251,99 @@ int main()
 
 
     //- - -TERMINAL USUÁRIO- - -
-    else if (ternminal_usuario == 1)
+    int menu_user = 0;
+    if (ternminal_usuario == 1)
     {
-        system("cls");
-        printf("ACESSO USUÁRIO\n\n");
+
+        int opcao = 0;
+        do{
+            system("cls");
+            printf("ACESSO USUÁRIO\n\n");
+            printf("[1] Cadastrar novos clientes\n[2] Escrever Relatórios\n[3] Clientes cadastrados\n[4] Ver relatórios");
+            printf("Escolha uma opção:\n");
+            scanf("%d", &opcao);
+            fflush(stdin);
+
+            switch(opcao)
+            {
+                case 1:
+                    system("cls");
+                    cadastro_cliente = fopen("Clientes.txt", "a");
+
+                    if(cadastro_cliente);
+                    {
+                        int novo_cliente = 0;
+                        while(novo_cliente == 0)
+                        {
+                            system("cls");
+                            printf("Nome do cliente: ");
+                            fgets(cliente.nome, 100, stdin);
+
+                            printf("Telefone:\n");
+                            printf("DDD: ");
+                            scanf("%d", &cliente.ddd);
+                            printf("Numero: ");
+                            scanf("%d", &cliente.telefone);
+                            fflush(stdin);
+
+                            printf("E-mail: ");
+                            fgets(cliente.email, 100, stdin);
+
+                            printf("Endereço: ");
+                            fgets(cliente.endereco, 100, stdin);
+                            printf("Numero: ");
+                            scanf("%d", &cliente.numero_casa);
+                            fflush(stdin);
+
+                            fprintf(cadastro_cliente,"Nome: %s", cliente.nome);
+                            fprintf(cadastro_cliente,"Telefone: (%d)%d\n", cliente.ddd, cliente.telefone);
+                            fprintf(cadastro_cliente,"E-mail: %s", cliente.email);
+                            fprintf(cadastro_cliente,"Endereço: %s Nº%d\n\n", strtok (cliente.endereco, "\n"), cliente.numero_casa);
+
+
+
+                            printf("Cadastrar novo cliente\n[0] SIM\n[1] NÃO\n");
+                            scanf("%d", &novo_cliente);
+                            getchar();
+                            if(novo_cliente == 1)
+                            {
+                                fclose(cadastro_cliente);
+                                novo_cliente ++;
+                            }
+                        }
+
+                    }
+
+                break;
+
+                //CLIENTES CADASTRADOS
+                case 3:
+                    system("cls");
+                    cadastro_cliente = fopen("Clientes.txt", "r");
+                    if(cadastro_cliente)
+                    {
+                        while(!feof(cadastro_cliente))
+                        {
+                            resultado_nome = fgets(cliente.nome, 100, cadastro_cliente);
+                            if (resultado_nome)
+                            {
+                                printf("%s", resultado_nome);
+                            }
+                        }
+                    }
+                    system("Pause");
+                    fclose(cadastro_cliente);
+
+                break;
+
+                default:
+                    printf("Opção invalida...\n");
+                    system("pause");
+                    system("cls");
+            }
+        }while(menu_user == 0);
+
+
     }
     //- - -TERMINAL USUÁRIO- - -
 
