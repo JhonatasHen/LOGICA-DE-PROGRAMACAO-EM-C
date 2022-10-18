@@ -15,7 +15,7 @@ struct ts_cliente
 {
     char nome[100];
     int telefone, ddd;
-    char email[50];
+    char email[100];
     char endereco[100];
 }cliente;
 
@@ -118,6 +118,7 @@ int main()
 
                             printf("Jornada de trabalho: ");
                             fgets(funcionario.jornada_de_trabalho, 25, stdin);
+                            printf("\n");
 
                             fprintf(cadastro_funcionario,"nome do funcionario: %s", funcionario.nome);
                             fprintf(cadastro_funcionario,"Data de nascimento: %d/%d/%d\n", funcionario.dia, funcionario.mes, funcionario.ano);
@@ -157,6 +158,25 @@ int main()
                             scanf("%d", &cliente.ddd);
                             printf("Numero: ");
                             scanf("%d", &cliente.telefone);
+
+                            printf("E-mail: ");
+                            fgets(cliente.email, 100, stdin);
+
+                            printf("Endereço: ");
+                            fgets(cliente.endereco, 100, stdin);
+
+                            fprintf(cadastro_cliente,"Nome: %s", cliente.nome);
+
+
+
+                            printf("Cadastrar novo cliente\n[0] SIM\n[1] NÃO\n");
+                            scanf("%d", &novo_cliente);
+                            getchar();
+                            if(novo_cliente == 1)
+                            {
+                                fclose(cadastro_cliente);
+                                novo_cliente ++;
+                            }
                         }
                     }
 
