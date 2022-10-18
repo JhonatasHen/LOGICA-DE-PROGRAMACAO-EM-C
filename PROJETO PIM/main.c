@@ -80,7 +80,8 @@ int main()
         do{
             system("cls");
             printf("ACESSO ADMINSTRADOR\n\n");
-            printf("[1] Cadastros de funcionários\n[2] Cadastros de clientes\n[3] Pagamento\n[4] funcionários cadastrados\n");
+            printf("[1] Cadastrar novo funcionários\n[2] Cadastrar novo clientes\n[3] Pagamento\n[4] Relatórios\n");
+            printf("[5] Funcionários cadastrados\n[6] Clientes cadastrados");
             printf("Escolha uma opção:\n");
             scanf("%d", &opcao);
             fflush(stdin);
@@ -98,7 +99,7 @@ int main()
                         while(novo_registro == 0)
                         {
                             system("cls");
-                            printf("Nome do funcionário\n");
+                            printf("Nome do funcionário: \n");
                             fgets(funcionario.nome, 100, stdin);
 
 
@@ -172,7 +173,7 @@ int main()
                             fprintf(cadastro_cliente,"Nome: %s", cliente.nome);
                             fprintf(cadastro_cliente,"Telefone: (%d)%d\n", cliente.ddd, cliente.telefone);
                             fprintf(cadastro_cliente,"E-mail: %s", cliente.email);
-                            fprintf(cadastro_cliente,"Endereço: %s Nº%d\n\n", cliente.endereco, cliente.numero_casa);
+                            fprintf(cadastro_cliente,"Endereço: %s Nº%d\n\n", strtok (cliente.endereco, "\n"), cliente.numero_casa);
 
 
 
@@ -194,8 +195,13 @@ int main()
 
                     break;
 
-                //FUNCIONÁRIOS CADASTRADOS
+
                 case 4:
+
+                    break;
+
+                //FUNCIONÁRIOS CADASTRADOS
+                case 5:
                     system("cls");
                     cadastro_funcionario = fopen("Funcionarios.txt", "r");
                     if(cadastro_funcionario)
@@ -211,6 +217,26 @@ int main()
                     }
                     system("Pause");
                     fclose(cadastro_funcionario);
+
+                    break;
+
+                //CLIENTES CADASTRADOS
+                case 6:
+                    system("cls");
+                    cadastro_cliente = fopen("Clientes.txt", "r");
+                    if(cadastro_cliente)
+                    {
+                        while(!feof(cadastro_cliente))
+                        {
+                            resultado_nome = fgets(cliente.nome, 100, cadastro_cliente);
+                            if (resultado_nome)
+                            {
+                                printf("%s", resultado_nome);
+                            }
+                        }
+                    }
+                    system("Pause");
+                    fclose(cadastro_cliente);
                     break;
 
                 default:
