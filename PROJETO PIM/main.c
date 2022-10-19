@@ -316,6 +316,7 @@ int main()
 
                 break;
 
+
                 //CLIENTES CADASTRADOS
                 case 3:
                     system("cls");
@@ -346,8 +347,6 @@ int main()
 
     }
     //- - -TERMINAL USUÁRIO- - -
-
-
 
     return 0;
 }
