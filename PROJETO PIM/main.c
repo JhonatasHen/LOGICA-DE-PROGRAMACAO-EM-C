@@ -300,8 +300,6 @@ int main()
                             fprintf(cadastro_cliente,"E-mail: %s", cliente.email);
                             fprintf(cadastro_cliente,"Endereço: %s Nº%d\n\n", strtok (cliente.endereco, "\n"), cliente.numero_casa);
 
-
-
                             printf("Cadastrar novo cliente\n[0] SIM\n[1] NÃO\n");
                             scanf("%d", &novo_cliente);
                             getchar();
