@@ -25,6 +25,7 @@ int main()
 
     FILE *cadastro_funcionario;
     FILE *cadastro_cliente;
+    FILE *financeiro;
 
     char *resultado_nome;
 
@@ -80,7 +81,7 @@ int main()
         do{
             system("cls");
             printf("ACESSO ADMINSTRADOR\n\n");
-            printf("[1] Cadastrar novo funcionários\n[2] Cadastrar novo clientes\n[3] Pagamento\n[4] Relatórios\n");
+            printf("[1] Cadastrar novo funcionários\n[2] Cadastrar novo clientes\n[3] Financeiro\n[4] Relatórios\n");
             printf("[5] Funcionários cadastrados\n[6] Clientes cadastrados");
             printf("Escolha uma opção:\n");
             scanf("%d", &opcao);
@@ -190,8 +191,10 @@ int main()
 
                 break;
 
-                //PAGAMENTO
+                //FINANCEIRO
                 case 3:
+                    system("cls");
+                    printf("FINANCEIRO");
 
                     break;
 
@@ -313,8 +316,6 @@ int main()
                     }
 
                 break;
-
-
                 //CLIENTES CADASTRADOS
                 case 3:
                     system("cls");
@@ -332,7 +333,6 @@ int main()
                     }
                     system("Pause");
                     fclose(cadastro_cliente);
-
                 break;
 
                 default:
@@ -341,8 +341,6 @@ int main()
                     system("cls");
             }
         }while(menu_user == 0);
-
-
     }
     //- - -TERMINAL USUÁRIO- - -
 
