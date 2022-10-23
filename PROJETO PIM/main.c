@@ -5,10 +5,10 @@
 
 struct ts_funcionario
 {
-    char nome[100];
-    int dia, mes, ano;
-    char cargo[25];
-    char jornada_de_trabalho[25];
+    char nome[5][100];
+    int dia[5], mes[5], ano[5];
+    char cargo[5][25];
+    char jornada_de_trabalho[5][25];
 }funcionario;
 
 struct ts_cliente
@@ -92,49 +92,43 @@ int main()
                 //CADASTRO DE FUNCIONÁRIO
                 case 1:
                     system("cls");
+
                     cadastro_funcionario = fopen("Funcionarios.txt", "a");
 
                     if(cadastro_funcionario)
                     {
                         int novo_registro = 0;
-                        while(novo_registro == 0)
+                        for(int i = 0; i < 5; i++)
                         {
                             system("cls");
+                            printf("CADASTRO DE FUNCIONÁRIOS\n\n");
+
                             printf("Nome do funcionário: \n");
-                            fgets(funcionario.nome, 100, stdin);
+                            fgets(funcionario.nome[i], 100, stdin);
 
 
                             printf("Data de nascimento:\n");
                             printf("Dia: ");
-                            scanf("%d", &funcionario.dia);
+                            scanf("%d", &funcionario.dia[i]);
                             fflush(stdin);
                             printf("Mês: ");
-                            scanf("%d", &funcionario.mes);
+                            scanf("%d", &funcionario.mes[i]);
                             fflush(stdin);
                             printf("ano: ");
-                            scanf("%d", &funcionario.ano);
+                            scanf("%d", &funcionario.ano[i]);
                             fflush(stdin);
 
                             printf("Cargo: ");
-                            fgets(funcionario.cargo, 25, stdin);
+                            fgets(funcionario.cargo[i], 25, stdin);
 
                             printf("Jornada de trabalho: ");
-                            fgets(funcionario.jornada_de_trabalho, 25, stdin);
+                            fgets(funcionario.jornada_de_trabalho[i], 25, stdin);
                             printf("\n");
 
-                            fprintf(cadastro_funcionario,"nome do funcionario: %s", funcionario.nome);
-                            fprintf(cadastro_funcionario,"Data de nascimento: %d/%d/%d\n", funcionario.dia, funcionario.mes, funcionario.ano);
+                            fprintf(cadastro_funcionario,"nome do funcionario: %s", funcionario.nome[i]);
+                            fprintf(cadastro_funcionario,"Data de nascimento: %d/%d/%d\n", funcionario.dia[i], funcionario.mes[i], funcionario.ano[i]);
                             fprintf(cadastro_funcionario,"Cargo: %s", funcionario.cargo);
-                            fprintf(cadastro_funcionario, "Jornada de trabalho: %s\n\n", funcionario.jornada_de_trabalho);
-
-                            printf("Registrar novo funcionário\n[0] SIM\n[1] NÃO\n");
-                            scanf("%d", &novo_registro);
-                            getchar();
-                            if(novo_registro == 1)
-                            {
-                                fclose(cadastro_funcionario);
-                                novo_registro ++;
-                            }
+                            fprintf(cadastro_funcionario, "Jornada de trabalho: %s\n\n", funcionario.jornada_de_trabalho[i]);
                         }
 
                     }
@@ -152,6 +146,8 @@ int main()
                         while(novo_cliente == 0)
                         {
                             system("cls");
+                            printf("CADASTRO DE CLIENTE\n\n");
+
                             printf("Nome do cliente: ");
                             fgets(cliente.nome, 100, stdin);
 
@@ -194,7 +190,16 @@ int main()
                 //FINANCEIRO
                 case 3:
                     system("cls");
-                    printf("FINANCEIRO");
+                    int sair_financeiro = 0;
+                    while(sair_financeiro == 0)
+                    {
+                        int opcao = 0;
+                        printf("FINANCEIRO");
+                        printf("[1] Pagamento\n[2] Contas da empresa\n [3] Lucros");
+                        scanf("%d", &opcao);
+
+                    }
+
 
                     break;
 
@@ -206,6 +211,7 @@ int main()
                 //FUNCIONÁRIOS CADASTRADOS
                 case 5:
                     system("cls");
+
                     cadastro_funcionario = fopen("Funcionarios.txt", "r");
                     if(cadastro_funcionario)
                     {
